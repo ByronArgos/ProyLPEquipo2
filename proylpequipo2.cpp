@@ -1,24 +1,33 @@
-#include <iostream>
-#include <conio>
-#include <stdio>
+#include <iostream.h>
+#include <conio.h>
+#include <stdio.h>
+#include <string.h>
 
 struct  horario
  {
- char dia, semestre, materia;
- int h_inicio, h_final;
+ char *dia[20];
+ char *semestre[20];
+ char *materia[20];
+ char *h_inicio[20];
+ char *h_final[20];
+
+
  };
 
- horario horariocompleto [14] ;
 
- void generar_horario   ()
- {
-   horariocompleto [0].materia= "Teoría electromagnética";
+
+ void generar_horario   ( horario horariocompleto[14])
+
+       {
+
+
+   horariocompleto [0].materia="Teoria electromagnetica";
    horariocompleto [0].semestre= " Tercer semestre";
    horariocompleto [0].dia="LUN";
-   horariocompleto [0].h_inicio= "07H00";
-   horariocompleto [0].h_final= "09H00";
+   horariocompleto [0].h_inicio= "9";
+   horariocompleto [0].h_final= "7";
 
-   horariocompleto [1] .materia= "Lab. Instrumentación";
+   horariocompleto [1] .materia= "Lab. Instrumentacion";
    horariocompleto [1] .semestre= "Tercer semestre";
    horariocompleto [1].dia="LUN";
    horariocompleto [1].h_inicio= "09H00";
@@ -30,19 +39,19 @@ struct  horario
    horariocompleto [2].h_inicio= "11H00";
    horariocompleto [2].h_final= "13H00";
 
-   horariocompleto [3] .materia= "Teoría electromagnética";
+   horariocompleto [3] .materia= "Teoria electromagnetica";
    horariocompleto [3] .semestre= "Tercer semestre";
    horariocompleto [3].dia="MAR";
    horariocompleto [3].h_inicio= "07H00";
    horariocompleto [3].h_final= "09H00";
 
-   horariocompleto [4] .materia= "Lab. Instrumentación";
+   horariocompleto [4] .materia= "Lab. Instrumentacion";
    horariocompleto [4] .semestre= "Segundo semestre";
    horariocompleto [4].dia="MAR";
    horariocompleto [4].h_inicio= "09H00";
    horariocompleto [4].h_final= "11H00";
 
-   horariocompleto [5] .materia= "Matemáticas III";
+   horariocompleto [5] .materia= "Matematicas III";
    horariocompleto [5] .semestre= "Tercer semestre";
    horariocompleto [5].dia="MAR";
    horariocompleto [5].h_inicio= "11H00";
@@ -103,7 +112,7 @@ struct  horario
    horariocompleto [14].h_final= "13H00";
    }
 
- void imprimir_horario ()
+ void imprimir_horario (horario horariocompleto[100])
  {
   int i;
   for(i=0; i<=14; i++)
@@ -128,12 +137,21 @@ cout<<"3.-Ver el horario de la semana"<<endl<<endl;
 cout<<"0.-Salir"<<endl<<endl;
 cin>>opc;
 clrscr();
+
+ horario horariocompleto [14] ;
+ horario p[14];
+
 switch(opc)
      {
        case: 1
        {
-       generar_horario();
+
+       generar_horario(horariocompleto);
+
        break;
+       case:2
+       imprimir_horario (horariocompleto);
+
        }
      }
  }while (opc!=0);
