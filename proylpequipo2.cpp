@@ -42,26 +42,31 @@ int menu()
 void ingreso(horario hi[])
 {
     int n;
-
-      for (int i=1;i<=5;i++)
+ for (int i=1;i<=5;i++)
       {
-do
+do{
+
+
+for (int j=1;j<=10;j++)
 {
+
+
        cout<<"ingrese su dia"<<i<<endl<<endl;
-             cin>>hi[i].dia;
+             cin>>hi[j].dia;
        cout<<"ingrese su semestre "<<endl<<endl;
-            cin>>hi[i].semestre;
+            cin>>hi[j].semestre;
        cout<<"ingrese su materia"<<endl<<endl;
-             cin>>hi[i].materia;
+             cin>>hi[j].materia;
          /*cout<<"ingrese su hora inicial"<<endl<<endl;
-            cin>>hi[i].inicio;
+            cin>>hi[j].inicio;
         cout<<"ingrese su hora final"<<endl<<endl;
-            cin>>hi[i].final;
+            cin>>hi[j].final;
          */
 
          cout<<"quire seguir ingresando mas horas de clases"<<endl<<endl;
-         cout<<"si desea pulse una tecla cualesquiera....__---__ caso contrario pulse 0  para abandonar el dia."<<endl<<endl;
+         cout<<"si desea seguir ingresando pulse 1....__---__ caso contrario pulse 0  para abandonar el dia."<<endl<<endl;
          cin>>n;
+}
 
  }while(n!=0);
        }
@@ -72,22 +77,30 @@ do
 }
 
 void impresion(horario hi[])
-{    for  (int i=1;i<=5;i++)
+{
+
+  for  (int i=1;i<=5;i++)
      {
+
+       for(int j=1;j<=10;j++)
+       {
          cout<<"su dia"<<endl<<endl;
-         cout<<hi[i].dia<<endl;
+         cout<<hi[j].dia<<endl;
          cout<<"su semestre "<<endl<<endl;
-         cout<<hi[i].semestre<<endl;
+         cout<<hi[j].semestre<<endl;
          cout<<"ingrese su materia"<<endl<<endl;
-         cout<<hi[i].materia<<endl;
+         cout<<hi[j].materia<<endl;
           /*cout<<"ingrese su hora inicial"<<endl<<endl;
-         cin>>hi[i].inicio;
+         cin>>hi[j].inicio;
          cout<<"ingrese su hora final"<<endl<<endl;
-         cin>>hi[i].final;
+         cin>>hi[j].final;
           */
 
-
+        }
       }
+
+
+
 
 }
 
