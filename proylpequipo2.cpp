@@ -5,6 +5,7 @@ hi:Horario de Ingreso */
 #include <conio.h>
 #include <stdio.h>
 #include <time.h>
+#include <time.h>
 
 
 
@@ -26,7 +27,7 @@ int menu()
           do{
    cout<<".....---- menu----....."<<endl<<endl;
    cout<<"1.-Ingresar una nueva hora de clases"<<endl<<endl;
-   cout<<"2.-Ver el horario " <<endl<<endl;
+   cout<<"2.-Ver el horario del dia" <<endl<<endl;
    cout<<"3.-Ver el horario de la semana"<<endl<<endl;
    cout<<"0.-Salir"<<endl<<endl;
     cin>>opc;
@@ -98,10 +99,26 @@ void impresion(horario hi[])
 
         }
       }
+}
 
 
+void  hora()
+ {
 
+   // Declaracion de Variables
+   time_t tiempo;
+   char cad[80];
+   struct tm * pTiempo;
 
+   // Codigo del programa
+   tiempo = time( NULL );
+   pTiempo = localtime( &tiempo );
+   strftime( cad, 80, "%H:%M.%S, %A de %B de %Y", pTiempo );
+
+   printf( "La hora local es: %s\n", asctime(pTiempo) );
+   printf( "La hora y fecha local es: %s\n", cad );
+
+   getch();
 }
 
 
@@ -130,6 +147,9 @@ do{
    case 2:
    impresion(hi);
    break;
+   case 3:
+   hora();
+
 
 
    }
