@@ -5,16 +5,16 @@ hi:Horario de Ingreso */
 #include <conio.h>
 #include <stdio.h>
 #include <time.h>
+#include <time.h>
 
 
 
-struct horario
-{
+struct hora_clase {
  char dia[20];
  char semestre[20];
  char materia[20];
- //time inicio;
- //time final;
+ char hini[5];
+ char hfin [5];
 
 
 };
@@ -26,7 +26,7 @@ int menu()
           do{
    cout<<".....---- menu----....."<<endl<<endl;
    cout<<"1.-Ingresar una nueva hora de clases"<<endl<<endl;
-   cout<<"2.-Ver el horario " <<endl<<endl;
+   cout<<"2.-Ver el horario del dia" <<endl<<endl;
    cout<<"3.-Ver el horario de la semana"<<endl<<endl;
    cout<<"0.-Salir"<<endl<<endl;
     cin>>opc;
@@ -39,9 +39,9 @@ int menu()
 }
 
 
-void ingreso(horario hi[])
+void ingreso(hora_clase hi[])
 {
-    int n;
+      int n;
  for (int i=1;i<=5;i++)
       {
 do{
@@ -76,7 +76,7 @@ for (int j=1;j<=10;j++)
 
 }
 
-void impresion(horario hi[])
+void impresion(hora_clase hi[])
 {
 
   for  (int i=1;i<=5;i++)
@@ -98,10 +98,21 @@ void impresion(horario hi[])
 
         }
       }
+}
 
 
+void  hora()
+ {
+   // Declaracion de Variables
+   time_t tiempo;
+   char cad[80];
+   struct tm * pTiempo;
+   tiempo = time( NULL );
+   strftime( cad, 80, "%a", pTiempo );
 
+   printf( "El dia es: %s\n", cad );
 
+   getch();
 }
 
 
@@ -114,7 +125,7 @@ void impresion(horario hi[])
 
 int op,opc;
 
-   horario hi[5];
+   hora_clase hi[5];
 
 do{
          op=menu();
@@ -129,7 +140,10 @@ do{
    break;
    case 2:
    impresion(hi);
+   hora();
    break;
+
+
 
 
    }
