@@ -13,9 +13,8 @@ struct horario
  char dia[20];
  char semestre[20];
  char materia[20];
- //time inicio;
- //time final;
-
+ char hini[5];
+ char hfin [5];
 
 };
 
@@ -39,42 +38,24 @@ int menu()
 }
 
 
-void ingreso(horario hi[])
-{
-    int n;
- for (int i=1;i<=5;i++)
-      {
-do{
-
-
-for (int j=1;j<=10;j++)
+void ingreso(hora_clase horario[], int last)
 {
 
+
+ hora_clase aux;
+  char hora[2], cad[5];
 
        cout<<"ingrese su dia"<<i<<endl<<endl;
-             cin>>hi[j].dia;
+             cin>>aux.dia;
        cout<<"ingrese su semestre "<<endl<<endl;
-            cin>>hi[j].semestre;
+           cin>>aux.semestre;
        cout<<"ingrese su materia"<<endl<<endl;
-             cin>>hi[j].materia;
-         /*cout<<"ingrese su hora inicial"<<endl<<endl;
-            cin>>hi[j].inicio;
-        cout<<"ingrese su hora final"<<endl<<endl;
-            cin>>hi[j].final;
-         */
-
-         cout<<"quire seguir ingresando mas horas de clases"<<endl<<endl;
-         cout<<"si desea seguir ingresando pulse 1....__---__ caso contrario pulse 0  para abandonar el dia."<<endl<<endl;
-         cin>>n;
-}
-
- }while(n!=0);
-       }
-
-
-
-
-}
+               cin>>aux.materia;
+         cout<<"ingrese su hora inicial"<<endl<<endl;
+           cin>>hora;
+           int cad=int(hora)
+          strftime(cad,80," %HH00",timeinfo)
+           puts(cad)
 
 void impresion(horario hi[])
 {
