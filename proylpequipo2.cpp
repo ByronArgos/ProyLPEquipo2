@@ -1,4 +1,8 @@
-
+#include <iostream.h>
+#include <conio.h>
+#include <stdio.h>
+#include <time.h>
+#include <time.h>
 
 
 
@@ -42,3 +46,59 @@ void impresionStruct(hora_clase var) {
   cout<<"hora fin: "<<endl<<endl;
   cout<<var.final<<endl<<endl;
 }
+char[] getDia() {
+  time_t rawtime;
+  struct tm * timeinfo;
+  char cad [80];
+  // char hour[80];
+  time (&rawtime);
+
+  timeinfo = localtime (&rawtime);
+  strftime (cad,80,"%A",timeinfo);
+  //strftime (hour,80,"%H",timeinfo);
+  //agregar la funcion para sacar los 3 caracteres inciales.
+  //cad=strcad(cad,3);
+  return cad;
+}
+
+
+///////  CUERPO PRINCIPAL /////////
+
+int main () {
+  int lastindex = -1;
+  int op;
+  char dia[3];
+  hora_clase horario[50];
+  //lectura del archivo.
+  // todos los datos del archivo asignar al vector.
+  // y setear lastindex al ultimo valor.
+  // cierran
+
+  do {
+    op = menu();
+    switch (op) {
+      case 1: {
+        ingreso(horario,lastindex);
+        break;
+      }
+      case 2: {
+        dia = getDia();
+        // getDia(dia);
+        getHorarioDia(horario,lastindex,dia);
+        break;
+      }
+      case 3: {
+        getHorario(horario,lastindex);
+        break;
+      }
+      case 0: {
+        // archivo archivo, vaciar todos lo elementos.
+        //recorrer el vector y cada elemento guardar en el archivo binario
+        //cerrar el archivo.
+        break;
+      }
+    }
+  } while(op!=0);
+  getch();
+} //fin del programa
+
