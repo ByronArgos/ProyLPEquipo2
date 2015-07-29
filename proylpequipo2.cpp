@@ -123,3 +123,151 @@ void getHorarioDia(hora_clase horario[],int num,char dia[])
       select[k] = horario[i];
     }
   }
+  //ordenamos
+  for (i = 0; i<k; i++) {
+    for (j = 1; j<=k; j++) {
+      strcat(hora,select[i].hini); 
+     //hora inicial del registro 1
+      for(n = 0; n < 2; n++)   //toma los dos primeros caracteres
+      {
+        hor[n] = hora[n];
+      }
+      hor1 = int(hor);    //convierto a numero 
+
+      strcat(hora, select[j].hini);
+      for(n = 0; n < 2; n++)    //toma los dos primeros caracteres
+      {
+        hor[n] = hora[n];
+      }
+      hor2 = int(hor);
+
+
+      if (hor1 > hor2) {
+        aux = select[i];
+        select[i] = select[j];
+        select[j] = aux;
+      }
+    }
+  }
+  //impresion
+  for (i = 0; i<=k; i++) {
+    aux = select[i];
+    impresionStruct(aux);
+  }
+}
+
+// impresion del horario de la semana
+void getHorario(hora_clase horario[],int num){
+  int i,n,k=-1;
+  char dia[3],dia1[10], d[3];
+  hora_clase select[10];
+  strcat(dia, "MON");
+  for (i = 0; i<=num; i++) {
+    strcat(dia1,horario[i].dia);
+    for(n = 0; n < 3; n++)  {   //toma los dos primeros caracteres
+        d[n] = dia1[n];
+    }
+    if (strcmp(d,dia) == 0) {
+      k++;
+      select[k] = horario[i];
+    }
+  }
+  getHorarioDia(select,k,dia);
+  strcat(dia,"TUE");
+  for (i = 0; i<=num; i++) {
+    strcat(dia1,horario[i].dia);
+    for(n = 0; n < 3; n++)  {   //toma los dos primeros caracteres
+        d[n] = dia1[n];
+    }
+    if (strcmp(d,dia) == 0) {
+      k++;
+      select[k] = horario[i];
+    }
+  }
+  getHorarioDia(select,k,dia);
+  strcat(dia,"WED");
+  for (i = 0; i<=num; i++) {
+    strcat(dia1,horario[i].dia);
+    for(n = 0; n < 3; n++)  {   //toma los dos primeros caracteres
+        d[n] = dia1[n];
+    }
+    if (strcmp(d,dia) == 0) {
+      k++;
+      select[k] = horario[i];
+    }
+  }
+  getHorarioDia(select,k,dia);
+  strcat(dia,"THU");
+  for (i = 0; i<=num; i++) {
+    strcat(dia1,horario[i].dia);
+    for(n = 0; n < 3; n++)  {   //toma los dos primeros caracteres
+        d[n] = dia1[n];
+    }
+    if (strcmp(d,dia) == 0) {
+      k++;
+      select[k] = horario[i];
+    }
+  }
+  getHorarioDia(select,k,dia);
+  strcat(dia,"FRY");
+  for (i = 0; i<=num; i++) {
+    strcat(dia1,horario[i].dia);
+    for(n = 0; n < 3; n++)  {   //toma los dos primeros caracteres
+        d[n] = dia1[n];
+    }
+    if (strcmp(d,dia) == 0) {
+      k++;
+      select[k] = horario[i];
+    }
+  }
+  getHorarioDia(select,k,dia);
+
+
+
+}
+
+int main () {
+  int lastindex = -1;
+  int op,i=0;
+  char dia[10],hora[5];
+  hora_clase horario[50];
+
+  //carga los datos del archivo al vector  horario[]
+
+  clrscr();
+  do {
+
+    op = menu();
+    switch (op) {
+      case 1: {
+        clrscr();
+        cout<<"INGRESO DE HORA CLASE"<<endl<<endl;
+        ingreso(horario,lastindex);
+        for (i = 1; i<= lastindex; i++)      {
+            impresionStruct(horario[i]);
+        }
+       break;
+      }
+      case 2: {
+        clrscr();
+        cout<<"Impresion de horario dia Actual"<<endl<<endl;
+        getDia(dia, hora);
+        getHorarioDia(horario,lastindex,dia);
+        break;
+      }
+      case 3: {
+        clrscr();
+        cout<<"Impresion de horario semana"<<endl<<endl;
+        getHorario(horario,lastindex);
+        break;
+      }
+      case 0: {
+        op = 0;
+        //guardamos todos los registros del vector horario al archivo
+        break;
+      }
+    }
+    getch();
+  } while(op!=0);
+ return 0;
+} //fin del programav
