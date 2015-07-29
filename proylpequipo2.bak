@@ -1,71 +1,25 @@
-/*donde
-hi:Horario de Ingreso */
-
-#include <iostream.h>
-#include <conio.h>
-#include <stdio.h>
-#include <time.h>
-#include <time.h>
 
 
 
-struct hora_clase {
- char dia[20];
- char semestre[20];
- char materia[20];
- char hini[5];
- char hfin [5];
 
 
-};
 
 
-int menu()
-{
-  int opc;
-          do{
-   cout<<".....---- menu----....."<<endl<<endl;
-   cout<<"1.-Ingresar una nueva hora de clases"<<endl<<endl;
-   cout<<"2.-Ver el horario del dia" <<endl<<endl;
-   cout<<"3.-Ver el horario de la semana"<<endl<<endl;
-   cout<<"0.-Salir"<<endl<<endl;
-    cin>>opc;
-    return(opc);
-    clrscr();
-
-           }while (opc!=0);
+//cambiar a entero y dar formato de hora en cadena "07H00"
+  //cad =  "07H00";
+  aux.hini = cad;
+  cout<<"ingrese la hora final"<<endl<<endl;
+  cin>>hora;
+  int cad=int(hora)
+  strftime(cad,80," %HH00",timeinfo)
+  puts(cad)
+  //cambiar a entero y dar formato de hora en cadena "07H00"
+  //cad =  "07H00";
+  aux.final= cad;
 
 
-}
-
-
-void ingreso(hora_clase hi[])
-{
-      int n;
- for (int i=1;i<=5;i++)
-      {
-do{
-
-
-for (int j=1;j<=10;j++)
-{
-
-
-       cout<<"ingrese su dia"<<i<<endl<<endl;
-             cin>>hi[j].dia;
-       cout<<"ingrese su semestre "<<endl<<endl;
-            cin>>hi[j].semestre;
-       cout<<"ingrese su materia"<<endl<<endl;
-             cin>>hi[j].materia;
-         /*cout<<"ingrese su hora inicial"<<endl<<endl;
-            cin>>hi[j].inicio;
-        cout<<"ingrese su hora final"<<endl<<endl;
-            cin>>hi[j].final;
-         */
-
-         cout<<"quire seguir ingresando mas horas de clases"<<endl<<endl;
-         cout<<"si desea seguir ingresando pulse 1....__---__ caso contrario pulse 0  para abandonar el dia."<<endl<<endl;
-         cin>>n;
+  last = last +1;
+  horario[last] = aux;
 }
 
  }while(n!=0);
@@ -76,83 +30,15 @@ for (int j=1;j<=10;j++)
 
 }
 
-void impresion(hora_clase hi[])
-{
-
-  for  (int i=1;i<=5;i++)
-     {
-
-       for(int j=1;j<=10;j++)
-       {
-         cout<<"su dia"<<endl<<endl;
-         cout<<hi[j].dia<<endl;
-         cout<<"su semestre "<<endl<<endl;
-         cout<<hi[j].semestre<<endl;
-         cout<<"ingrese su materia"<<endl<<endl;
-         cout<<hi[j].materia<<endl;
-          /*cout<<"ingrese su hora inicial"<<endl<<endl;
-         cin>>hi[j].inicio;
-         cout<<"ingrese su hora final"<<endl<<endl;
-         cin>>hi[j].final;
-          */
-
-        }
-      }
+void impresionStruct(hora_clase var) {
+  cout<<"Dia:"<<endl<<endl;
+  cout<<var.dia<<endl;
+  cout<<"Semestre: "<<endl<<endl;
+  cout<<var.semestre<<endl;
+  cout<<"Materia: "<<endl<<endl;
+  cout<<var.materia<<endl;
+  cout<<"hora inicio: "<<endl<<endl;
+  cout<<var.inicio<<endl<<endl;
+  cout<<"hora fin: "<<endl<<endl;
+  cout<<var.final<<endl<<endl;
 }
-
-
-void  hora()
- {
-   // Declaracion de Variables
-   time_t tiempo;
-   char cad[80];
-   struct tm * pTiempo;
-   tiempo = time( NULL );
-   strftime( cad, 80, "%a", pTiempo );
-
-   printf( "El dia es: %s\n", cad );
-
-   getch();
-}
-
-
-///////  CUERPO PRINCIPAL /////////
-
- main ()
-
-
-{
-
-int op,opc;
-
-   hora_clase hi[5];
-
-do{
-         op=menu();
-
-
-   switch (op)
-
-   {
-
-   case 1:
-   ingreso (hi);
-   break;
-   case 2:
-   impresion(hi);
-   hora();
-   break;
-
-
-
-
-   }
-}while(op!=0);
-
-
-
-
-
-
-   getch();
-} //fin del programa
