@@ -56,6 +56,7 @@ void ingreso(hora_clase horario[], int last)
            int cad=int(hora)
           strftime(cad,80," %HH00",timeinfo)
            puts(cad)
+ }
 
 void impresion(horario hi[])
 {
